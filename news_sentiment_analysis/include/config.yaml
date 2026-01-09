@@ -12,7 +12,7 @@ settings:
 
 # Cloud Storage Settings
 s3:
-  bucket_name: my-reddit-datalake
+  bucket_name: "YOUR_BUCKET_NAME"
 
 api:
-  key : "760e46d637a34d4883e70b964ce582fb"
+  key : "YOUR_API_KEY"
