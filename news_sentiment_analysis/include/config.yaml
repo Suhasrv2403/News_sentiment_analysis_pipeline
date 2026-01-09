@@ -1,0 +1,18 @@
+search_keywords:
+  - "Tesla"
+  - "Nvidia"
+  - "Artificial Intelligence"
+  - "Federal Reserve"
+
+settings:
+  language: "en"
+  page_size: 50
+  sort_by: "publishedAt"
+
+
+# Cloud Storage Settings
+s3:
+  bucket_name: my-reddit-datalake
+
+api:
+  key : "760e46d637a34d4883e70b964ce582fb"
