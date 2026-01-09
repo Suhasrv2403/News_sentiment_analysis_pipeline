@@ -1,8 +1,13 @@
 .git
 .env
 .DS_Store
+# Holds the real NewsAPI key and S3 bucket name — see config.example.yaml
+# for the template of what this file should contain.
+configs/config.yaml
 airflow_settings.yaml
 __pycache__/
+.pytest_cache/
+.ruff_cache/
 astro
 .venv
 airflow-webserver.pid
