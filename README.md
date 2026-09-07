@@ -1,3 +1,5 @@
+[![CI](https://github.com/Suhasrv2403/News_sentiment_analysis_pipeline/actions/workflows/ci.yml/badge.svg?event=push)](https://github.com/Suhasrv2403/News_sentiment_analysis_pipeline/actions/workflows/ci.yml)
+
 # News Intelligence Medallion Pipeline
 
 Automated Airflow pipeline that pulls daily news coverage for a configurable list of keywords, lands it in Snowflake through a Bronze → Silver → Gold medallion architecture, and classifies each day's headlines by AI-generated sentiment — no manual step between "NewsAPI has new articles" and "a Gold table has today's sentiment and volume numbers ready for BI." Idempotent by design (hash-based article IDs, incremental Gold loads), so re-running any day is safe. Orchestrated by Apache Airflow (Astronomer), with unit + structural tests and CI.
