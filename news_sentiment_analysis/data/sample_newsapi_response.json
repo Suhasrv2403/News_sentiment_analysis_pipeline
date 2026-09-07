@@ -1,0 +1,24 @@
+[
+  {
+    "id": "Tesla_5f4dcc3b5aa765d61d8327deb882cf99",
+    "keyword": "Tesla",
+    "source": "Reuters",
+    "author": "Jane Doe",
+    "title": "Tesla unveils new battery technology",
+    "description": "Tesla announced a breakthrough in battery energy density at its annual event.",
+    "url": "https://example.com/news/tesla-battery-tech",
+    "published_at": "2026-01-09T14:32:00Z",
+    "content": "Tesla's new battery technology promises a 20% increase in range..."
+  },
+  {
+    "id": "Tesla_098f6bcd4621d373cade4e832627b4f6",
+    "keyword": "Tesla",
+    "source": "Bloomberg",
+    "author": null,
+    "title": "[Removed]",
+    "description": null,
+    "url": "https://removed.example.com/",
+    "published_at": "2026-01-08T09:00:00Z",
+    "content": null
+  }
+]

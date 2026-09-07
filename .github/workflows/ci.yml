@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+defaults:
+  run:
+    working-directory: news_sentiment_analysis
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install ruff
+        run: pip install ruff
+
+      - name: Run ruff
+        run: ruff check .
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install project + test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          # Airflow itself + the providers imported by dags/news_extraction_dag.py.
+          # Not in requirements.txt because the Astro runtime image (see
+          # Dockerfile) already bundles Airflow; range verified locally to
+          # resolve to 3.1.8, matching the astrocrpublic.azurecr.io Astro
+          # Runtime 3.1 base image in the Dockerfile. Re-verify this pin if
+          # that base image tag is bumped.
+          pip install "apache-airflow>=2.8,<3.2" \
+                       apache-airflow-providers-amazon \
+                       apache-airflow-providers-common-sql \
+                       pytest
+
+      - name: Run tests
+        env:
+          AIRFLOW_HOME: ${{ github.workspace }}/news_sentiment_analysis/.airflow_home
+        run: pytest -v

@@ -1,0 +1,38 @@
+# Template for configs/config.yaml — copy this file to config.yaml and
+# fill in real values. config.yaml is gitignored (it holds the NewsAPI key
+# and S3 bucket name) so it is never committed; this template is the
+# checked-in reference for what keys settings.py expects.
+#
+#   cp configs/config.example.yaml configs/config.yaml
+
+search_keywords:
+  - "Tesla"
+  - "Nvidia"
+  - "Artificial Intelligence"
+  - "Federal Reserve"
+
+settings:
+  language: "en"
+  page_size: 50
+  sort_by: "publishedAt"
+
+# Cloud Storage Settings
+s3:
+  bucket_name: "YOUR_BUCKET_NAME"
+  bronze_prefix: "bronze/news"
+
+api:
+  key: "YOUR_API_KEY"
+
+# Gold-layer sentiment classification
+sentiment:
+  # SNOWFLAKE.CORTEX.SENTIMENT(title) returns a score in [-1, 1]; scores
+  # within +/- this band of 0 are classified as 'Neutral'.
+  neutral_band: 0.15
+
+# Airflow DAG scheduling
+dag:
+  dag_id: "news_intelligence_pipeline"
+  start_date: "2026-01-01"
+  schedule: "@daily"
+  catchup: false
